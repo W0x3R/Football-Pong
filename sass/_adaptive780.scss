@@ -32,6 +32,9 @@
 	.fullscreen-toggle {
 		@include widthAndHight(35px, 35px);
 		left: calc(50% - 17.5px);
+		&:hover {
+			@include widthAndHight(34px, 34px);
+		}
 	}
 
 	.created-by {
@@ -77,6 +80,9 @@
 	.fullscreen-toggle {
 		@include widthAndHight(35px, 35px);
 		left: calc(50% - 17.5px);
+		&:hover {
+			@include widthAndHight(34px, 34px);
+		}
 	}
 
 	.created-by {
