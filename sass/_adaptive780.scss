@@ -1,0 +1,90 @@
+@media screen and (max-width: 780px) {
+	.field {
+		&__ball {
+			@include widthAndHight(40px, 40px);
+		}
+
+		&__restart-btn {
+			@include widthAndHight(100px, 25px);
+			font-size: 15px;
+			left: calc(50% - 50px);
+
+			&:hover {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.players-score {
+		width: 240px;
+		left: calc(50.1% - 120px);
+
+		&__inner {
+			width: 45px;
+			height: 40px;
+		}
+
+		&__title {
+			font-size: 36px;
+		}
+	}
+
+	.fullscreen-toggle {
+		@include widthAndHight(35px, 35px);
+		left: calc(50% - 17.5px);
+	}
+
+	.created-by {
+		@include position(absolute, calc(50% - 150px), auto, auto, 25px);
+		width: 300px;
+
+		&__title {
+			font-size: 17px;
+		}
+	}
+}
+
+@media screen and (max-height: 610px) {
+	.field {
+		&__ball {
+			@include widthAndHight(45px, 45px);
+		}
+
+		&__restart-btn {
+			@include widthAndHight(100px, 25px);
+			font-size: 15px;
+			left: calc(50% - 50px);
+
+			&:hover {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.players-score {
+		width: 240px;
+		left: calc(50.1% - 120px);
+
+		&__inner {
+			@include widthAndHight(45px, 40px);
+		}
+
+		&__title {
+			font-size: 36px;
+		}
+	}
+
+	.fullscreen-toggle {
+		@include widthAndHight(35px, 35px);
+		left: calc(50% - 17.5px);
+	}
+
+	.created-by {
+		@include position(absolute, calc(50% - 150px), auto, auto, 25px);
+		width: 300px;
+
+		&__title {
+			font-size: 17px;
+		}
+	}
+}
