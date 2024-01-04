@@ -1,0 +1,134 @@
+@import 'normalize';
+@import 'mixins';
+
+.container {
+	max-width: 1680px;
+	margin: 0 auto;
+	position: relative;
+	height: 100vh;
+}
+
+.field {
+	&__img {
+		@include widthAndHight(100%, 100vh);
+		border-radius: 10px;
+	}
+
+	&__ball {
+		@include position(absolute, 25px, 25px);
+		@include widthAndHight(70px, 70px);
+		transition: all 0.6s ease-in;
+		cursor: pointer;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	&__restart-btn {
+		@include position(absolute, calc(50% - 65px), 75px);
+		@include widthAndHight(130px, 30px);
+		padding: 3px;
+		font-size: 19px;
+		z-index: 1;
+		border: 2px solid black;
+		border-radius: 10px;
+		background: linear-gradient(348deg, #3a3a3a 0%, #f7f7d9 50%, #3a3a3a 100%);
+		cursor: pointer;
+		letter-spacing: 1px;
+		user-select: none;
+		transition: all 0.5s ease;
+
+		@media (hover: hover) {
+			&:hover {
+				font-size: 18px;
+				border: 2px solid black;
+				box-shadow: 2px 4px 0px 0px #000;
+			}
+		}
+
+		@media (hover: none) {
+			&:hover {
+				font-size: 18px;
+				border: 2px solid black;
+				box-shadow: 2px 4px 0px 0px #000;
+			}
+		}
+	}
+}
+
+.players-score {
+	@include position(absolute, calc(50.1% - 150px), 20px);
+	@include widthAndHight(300px, 50px);
+	display: flex;
+	justify-content: space-between;
+
+	&__inner {
+		@include widthAndHight(55px, 50px);
+		display: flex;
+		border: 3px solid #ffc800;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__title {
+		font-size: 55px;
+		color: #e4ff00;
+		user-select: none;
+	}
+}
+
+.fullscreen-toggle {
+	@include position(absolute, calc(50% - 20px), 20px);
+	cursor: pointer;
+	user-select: none;
+	transition: 0.3s;
+
+	&:hover {
+		width: 39px;
+		height: 39px;
+	}
+}
+
+.created-by {
+	@include position(absolute, calc(50% - 220px), auto, auto, 25px);
+	@include widthAndHight(440px);
+	text-align: center;
+	border-radius: 10px;
+	border: 3px solid black;
+	background: aliceblue;
+	user-select: none;
+	transition: all 0.5s ease;
+
+	@media (hover: hover) {
+		&:hover {
+			background: #b9b9b9;
+		}
+	}
+
+	@media (hover: none) {
+		&:hover {
+			background: #b9b9b9;
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+	}
+}
+
+.portrait-orientation {
+	background-image: url('../images/website-images/portrait-orientation-img.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.portrait-orientation__message {
+	padding: 10px;
+	font-size: clamp(33px, 8vw, 40px);
+	text-align: center;
+	color: #fbff00;
+}
+
+@import 'adaptive780';

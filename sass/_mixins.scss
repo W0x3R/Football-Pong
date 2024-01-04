@@ -1,0 +1,11 @@
+@mixin position($position: auto, $left: auto, $top: auto, $right: auto, $bottom: auto) {
+	position: $position;
+	left: $left;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+}
+@mixin widthAndHight($width, $height: auto) {
+	width: $width;
+	height: $height;
+}
