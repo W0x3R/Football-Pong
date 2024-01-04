@@ -8,7 +8,7 @@ const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
 
 const portraitOrientationTitle = document.createElement("h1");
-portraitOrientationTitle.textContent = "Please use landscape orientation for the game to work correctly!";
+portraitOrientationTitle.textContent = "Please use landscape orientation and click on the icon to enable full screen mode for the game to work correctly!";
 portraitOrientationTitle.classList.add("portrait-orientation__message");
 
 let flag = 0;
@@ -156,15 +156,15 @@ function mathRandom() {
 }
 
 function playKickSound() {
-	new Audio("../sounds/kick.mp3").play();
+	new Audio("kick.mp3").play();
 }
 
 function playGoalSound() {
-	new Audio("../sounds/goal.mp3").play();
+	new Audio("goal.mp3").play();
 }
 
 function playHitTheNet() {
-	new Audio("../sounds/hit-the-net.mp3").play()
+	new Audio("hit-the-net.mp3").play()
 }
 
 const checkWidthOfGoal = () => {
