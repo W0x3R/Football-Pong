@@ -141,12 +141,21 @@ window.addEventListener("load", () => {
 fullscreen.addEventListener("click", toggleScreen);
 
 function toggleScreen() {
-	if (!document.fullscreenElement) {
-		document.documentElement.requestFullscreen();
-	} else if (document.fullscreenEnabled) {
-		document.exitFullscreen();
+	const document = window.document;
+	const html = document.documentElement;
+
+	const requestFullScreen = html.requestFullscreen || html.mozRequestFullScreen || html.webkitRequestFullScreen || html.msRequestFullscreen;
+	const cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
+	if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+		requestFullScreen.call(html);
+	}
+	else {
+		cancelFullScreen.call(document);
 	}
 }
+
+
+
 
 // random top position
 function mathRandom() {
