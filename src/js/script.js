@@ -106,7 +106,6 @@ function changeStylesLandscapeOrientation() {
 		else {
 			item.style.display = "block";
 		}
-
 	}
 	checkFlagResize()
 }
@@ -146,14 +145,10 @@ function toggleScreen() {
 	const cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
 	if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
 		requestFullScreen.call(html);
-	}
-	else {
+	} else {
 		cancelFullScreen.call(document);
 	}
 }
-
-
-
 
 // random top position
 function mathRandom() {
@@ -175,44 +170,36 @@ function playHitTheNet() {
 }
 
 const checkWidthOfGoal = () => {
-	if (getCurrentCenterOfField() >= 605) {
-		return 183;
-	} else if (getCurrentCenterOfField() <= 604 && getCurrentCenterOfField() >= 570) {
-		return 183;
-	} else if (getCurrentCenterOfField() <= 569 && getCurrentCenterOfField() >= 540) {
-		return 172;
-	} else if (getCurrentCenterOfField() <= 539 && getCurrentCenterOfField() >= 520) {
-		return 164;
-	} else if (getCurrentCenterOfField() <= 519 && getCurrentCenterOfField() >= 500) {
-		return 157;
-	} else if (getCurrentCenterOfField() <= 499 && getCurrentCenterOfField() >= 470) {
-		return 145;
-	} else if (getCurrentCenterOfField() <= 469 && getCurrentCenterOfField() >= 446) {
-		return 137;
-	} else if (getCurrentCenterOfField() <= 445 && getCurrentCenterOfField() >= 420) {
-		return 127;
-	} else if (getCurrentCenterOfField() <= 419 && getCurrentCenterOfField() >= 388) {
-		return 116;
-	} else if (getCurrentCenterOfField() <= 387 && getCurrentCenterOfField() >= 360) {
-		return 108;
-	} else if (getCurrentCenterOfField() <= 359 && getCurrentCenterOfField() >= 332) {
-		return 100;
-	} else if (getCurrentCenterOfField() <= 331 && getCurrentCenterOfField() >= 300) {
-		return 88;
-	} else if (getCurrentCenterOfField() <= 299 && getCurrentCenterOfField() >= 282) {
-		return 78;
-	} else if (getCurrentCenterOfField() <= 281.5 && getCurrentCenterOfField() >= 261.5) {
-		return 76;
-	} else if (getCurrentCenterOfField() <= 260.5 && getCurrentCenterOfField() >= 246.5) {
-		return 73;
-	} else if (getCurrentCenterOfField() <= 245.5 && getCurrentCenterOfField() >= 223.5) {
-		return 68;
-	} else if (getCurrentCenterOfField() <= 222.5 && getCurrentCenterOfField() >= 208.5) {
-		return 62;
-	} else {
+	const center = getCurrentCenterOfField();
+	console.log(center);
+	const heights = [
+		{ min: 570, height: 183 },
+		{ min: 540, height: 172 },
+		{ min: 520, height: 164 },
+		{ min: 500, height: 157 },
+		{ min: 470, height: 145 },
+		{ min: 446, height: 137 },
+		{ min: 420, height: 127 },
+		{ min: 388, height: 116 },
+		{ min: 360, height: 108 },
+		{ min: 332, height: 100 },
+		{ min: 300, height: 88 },
+		{ min: 282, height: 78 },
+		{ min: 261.5, height: 76 },
+		{ min: 246.5, height: 73 },
+		{ min: 223.5, height: 68 },
+		{ min: 208.5, height: 62 },
+	]
+	for (const item of heights) {
+		if (center >= item.min) {
+			return item.height
+		}
+	}
+	if (center < 208.5) {
 		return 18;
 	}
 };
+
 
 function showGoal(numberOfPlayer) {
 	delay(700).then(() => numberOfPlayer.style.color = "red")
