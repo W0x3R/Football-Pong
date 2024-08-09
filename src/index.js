@@ -34,26 +34,24 @@ const getCurrentFieldWidth = () => fieldImg.width;
 
 const getCurrentFieldHeight = () => fieldImg.height;
 
-const getCurrentPaddingOfField = (direction) => parseInt(getComputedStyle(fieldImg).padding + direction);
-
 const getCurrentCenterOfField = () =>
-	parseInt(getCurrentFieldHeight() / 2) - getCurrentBallWidth() / 2 + getCurrentPaddingOfField("Top");
+	parseInt(getCurrentFieldHeight() / 2) - getCurrentBallWidth() / 2;
 
 // delay function
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 // left position during resize
 const positionLeft = () => {
-	ballImg.style.left = 25 + getCurrentPaddingOfField("Left") + "px";
-	ballImg.style.top = 25 + getCurrentPaddingOfField("Top") + "px";
+	ballImg.style.left = 25 + "px";
+	ballImg.style.top = 25 + "px";
 	delay(50).then(() => ballImg.style.transition = "none")
 	delay(300).then(() => ballImg.style.transition = "all 0.6s ease-in")
 };
 
 // right position during resize
 const positionRight = () => {
-	ballImg.style.left = getCurrentFieldWidth() - getCurrentBallWidth() + getCurrentPaddingOfField("Left") - 25 + "px";
-	ballImg.style.top = 25 + getCurrentPaddingOfField("Top") + "px";
+	ballImg.style.left = getCurrentFieldWidth() - getCurrentBallWidth() - 25 + "px";
+	ballImg.style.top = 25 + "px";
 	delay(50).then(() => ballImg.style.transition = "none")
 	delay(300).then(() => ballImg.style.transition = "all 0.6s ease-in")
 };
@@ -137,8 +135,8 @@ function toggleScreen() {
 
 // random top position
 function mathRandom() {
-	let min = 25 + Math.ceil(getCurrentPaddingOfField("Top"));
-	let max = Math.floor(getCurrentFieldHeight() - getCurrentBallWidth() + getCurrentPaddingOfField("Bottom") - 25);
+	let min = 25;
+	let max = Math.floor(getCurrentFieldHeight() - getCurrentBallWidth() - 25);
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -204,7 +202,7 @@ function checkFirstPlayerScore() {
 			playerOneScore.textContent++
 			setSessionStorage('playerOneScore', playerOneScore.textContent)
 			ballImg.style.left = getCurrentFieldWidth() - 25;
-			ballImg.style.top = 25 + getCurrentPaddingOfField("Top") + "px";
+			ballImg.style.top = 25 + "px";
 		})
 		showGoal(playerOneScore);
 	}
@@ -221,8 +219,8 @@ function checkSecondPlayerScore() {
 			playGoalSound();
 			playerTwoScore.textContent++
 			setSessionStorage('playerTwoScore', playerTwoScore.textContent)
-			ballImg.style.left = 25 + getCurrentPaddingOfField("Left") + "px";
-			ballImg.style.top = 25 + getCurrentPaddingOfField("Top") + "px";
+			ballImg.style.left = 25 + "px";
+			ballImg.style.top = 25 + "px";
 		})
 		showGoal(playerTwoScore);
 	}
@@ -232,13 +230,13 @@ function checkSecondPlayerScore() {
 ballImg.addEventListener("click", function () {
 	playKickSound();
 	if (sessionStorage.getItem("flag") === "0") {
-		ballImg.style.left = getCurrentFieldWidth() - getCurrentBallWidth() + +getCurrentPaddingOfField("Right") - 25 + "px";
+		ballImg.style.left = getCurrentFieldWidth() - getCurrentBallWidth() - 25 + "px";
 		ballImg.style.top = mathRandom() + "px";
 		checkFirstPlayerScore();
 		flag++;
 		setSessionStorage('flag', flag)
 	} else {
-		ballImg.style.left = 25 + +getCurrentPaddingOfField("Left") + "px";
+		ballImg.style.left = 25 + "px";
 		ballImg.style.top = mathRandom() + "px";
 		checkSecondPlayerScore();
 		flag = 0;
