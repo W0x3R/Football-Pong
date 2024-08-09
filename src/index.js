@@ -1,3 +1,8 @@
+import './style.scss';
+import kickSound from './sounds/kick.mp3'
+import goalSound from './sounds/goal.mp3';
+import hitBallSounds from './sounds/hit-the-net.mp3';
+
 // create variables
 const field = document.querySelector(".field");
 const ballImg = document.querySelector(".field__ball");
@@ -158,15 +163,15 @@ function mathRandom() {
 }
 
 function playKickSound() {
-	new Audio("kick.mp3").play();
+	new Audio(kickSound).play();
 }
 
 function playGoalSound() {
-	new Audio("goal.mp3").play();
+	new Audio(goalSound).play();
 }
 
 function playHitTheNet() {
-	new Audio("hit-the-net.mp3").play()
+	new Audio(hitBallSounds).play()
 }
 
 const checkWidthOfGoal = () => {

@@ -1,5 +1,5 @@
-@import 'normalize';
-@import 'mixins';
+@import './sass/normalize';
+@import './sass/mixins';
 
 .container {
 	max-width: 1680px;
@@ -116,7 +116,7 @@
 }
 
 .portrait-orientation {
-	background-image: url('../images/website-images/portrait-orientation-img.jpg');
+	background-image: url('./images/website-images/portrait-orientation-img.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
@@ -131,4 +131,4 @@
 	color: #fbff00;
 }
 
-@import 'adaptive780';
+@import './sass/adaptive780';
