@@ -5,6 +5,7 @@ import hitBallSounds from './sounds/hit-the-net.mp3';
 import { getSessionStorage } from './js/storage/getSessionStorage';
 import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore/setPlayerScore';
 import { setSessionStorage } from './js/storage/setSessionStorage';
+import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
 
 // create variables
 const field = document.querySelector(".field");
@@ -18,11 +19,6 @@ portraitOrientationTitle.textContent = "Please use landscape orientation and cli
 portraitOrientationTitle.classList.add("portrait-orientation__message");
 
 let flag = 0;
-
-const checkSessionScorePresence = () => {
-	setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
-	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
-}
 
 restartButton.addEventListener("click", function () {
 	setSessionStorage("playerOneScore", 0)
