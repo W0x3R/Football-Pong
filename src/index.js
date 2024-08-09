@@ -7,8 +7,6 @@ import hitBallSounds from './sounds/hit-the-net.mp3';
 const field = document.querySelector(".field");
 const ballImg = document.querySelector(".field__ball");
 const fieldImg = document.querySelector(".field__img");
-const playerOneScore = document.querySelector(".player-one-score");
-const playerTwoScore = document.querySelector(".player-two-score");
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
 
