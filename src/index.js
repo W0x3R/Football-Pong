@@ -19,32 +19,16 @@ portraitOrientationTitle.classList.add("portrait-orientation__message");
 
 let flag = 0;
 
-// get sessionStorage data
-const getSessionScore = (numberPlayer, item) => {
-	return (numberPlayer.textContent = sessionStorage.getItem(item));
-};
-
-// set sessionStorage data
-const setSessionScore = (item, value) => {
-	return (sessionStorage.setItem(item, value));
-};
-
 const checkSessionScorePresence = () => {
-	if (sessionStorage.getItem("playerOneScore") && sessionStorage.getItem("playerTwoScore")) {
-		getSessionScore(playerOneScore, "playerOneScore");
-		getSessionScore(playerTwoScore, "playerTwoScore");
-	} else {
-		playerOneScore.textContent = 0;
-		playerTwoScore.textContent = 0;
-	}
+	setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
+	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 }
 
-// add listener that can restart the game
 restartButton.addEventListener("click", function () {
-	setSessionScore("playerOneScore", 0)
-	setSessionScore("playerTwoScore", 0)
-	getSessionScore(playerOneScore, 'playerOneScore')
-	getSessionScore(playerTwoScore, 'playerTwoScore')
+	setSessionStorage("playerOneScore", 0)
+	setSessionStorage("playerTwoScore", 0)
+	setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
+	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 });
 
 //creating  functions to check the real values ​​of the width and height of element
@@ -130,7 +114,6 @@ const checkOrientation = () => {
 window.addEventListener("resize", () => {
 	checkFlagResize();
 	checkOrientation();
-	checkSessionScorePresence()
 });
 
 // window load event
@@ -219,11 +202,11 @@ function checkFirstPlayerScore() {
 	) {
 		delay(200).then(playHitTheNet)
 		flag = 1;
-		setSessionScore('flag', flag)
+		setSessionStorage('flag', flag)
 		delay(700).then(() => {
 			playGoalSound();
 			playerOneScore.textContent++
-			setSessionScore('playerOneScore', playerOneScore.textContent)
+			setSessionStorage('playerOneScore', playerOneScore.textContent)
 			ballImg.style.left = getCurrentFieldWidth() - 25;
 			ballImg.style.top = 25 + getCurrentPaddingOfField("Top") + "px";
 		})
@@ -241,7 +224,7 @@ function checkSecondPlayerScore() {
 		delay(700).then(() => {
 			playGoalSound();
 			playerTwoScore.textContent++
-			setSessionScore('playerTwoScore', playerTwoScore.textContent)
+			setSessionStorage('playerTwoScore', playerTwoScore.textContent)
 			ballImg.style.left = 25 + getCurrentPaddingOfField("Left") + "px";
 			ballImg.style.top = 25 + getCurrentPaddingOfField("Top") + "px";
 		})
@@ -257,13 +240,13 @@ ballImg.addEventListener("click", function () {
 		ballImg.style.top = mathRandom() + "px";
 		checkFirstPlayerScore();
 		flag++;
-		setSessionScore('flag', flag)
+		setSessionStorage('flag', flag)
 	} else {
 		ballImg.style.left = 25 + +getCurrentPaddingOfField("Left") + "px";
 		ballImg.style.top = mathRandom() + "px";
 		checkSecondPlayerScore();
 		flag = 0;
-		setSessionScore('flag', flag)
+		setSessionStorage('flag', flag)
 	}
 });
 
