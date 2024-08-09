@@ -2,6 +2,9 @@ import './style.scss';
 import kickSound from './sounds/kick.mp3'
 import goalSound from './sounds/goal.mp3';
 import hitBallSounds from './sounds/hit-the-net.mp3';
+import { getSessionStorage } from './js/storage/getSessionStorage';
+import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore/setPlayerScore';
+import { setSessionStorage } from './js/storage/setSessionStorage';
 
 // create variables
 const field = document.querySelector(".field");
