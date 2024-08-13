@@ -124,20 +124,19 @@
 	}
 }
 
-.portrait-orientation {
-	background-image: url('./images/website-images/portrait-orientation-img.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-}
-
-.portrait-orientation__message {
+.field-orientation__message {
 	padding: 10px;
 	font-size: clamp(33px, 8vw, 40px);
 	text-align: center;
 	color: #fbff00;
+	display: none;
+
+	&_show {
+		display: block;
+		position: absolute;
+		z-index: 11;
+		max-width: 640px
+	}
 }
 
 @import './sass/adaptive780';
