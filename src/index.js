@@ -10,6 +10,7 @@ import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './j
 import { getItemSizes } from './js/sizes/getItemSizes';
 import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
 import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
+import { delay } from './js/delay';
 
 const field = document.querySelector(".field");
 export const fieldImg = document.querySelector(".field__img");
@@ -27,8 +28,6 @@ restartButton.addEventListener("click", function () {
 	setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
 	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 });
-
-export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 // function that changes styles in portrait orientation
 function changeStylesPortraitOrientation() {

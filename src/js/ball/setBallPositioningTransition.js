@@ -1,4 +1,4 @@
-import { delay } from "../.."
+import { delay } from "../delay"
 import { ballImg } from "./setBallPosition"
 
 export const setBallPositioningTransition = () => {
