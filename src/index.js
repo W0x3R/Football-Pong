@@ -11,14 +11,13 @@ import { getItemSizes } from './js/sizes/getItemSizes';
 import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
 import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { delay } from './js/delay';
+import portraitImgSrc from './images/website-images/portrait-orientation-img.jpg'
+import fieldImgSrc from './images/website-images/field.jpg'
 
-const field = document.querySelector(".field");
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
-const portraitOrientationTitle = document.createElement("h1");
-portraitOrientationTitle.textContent = "Please use landscape orientation and click on the icon to enable full screen mode for the game to work correctly!";
-portraitOrientationTitle.classList.add("portrait-orientation__message");
+const portraitOrientationTitle = document.querySelector('.field-orientation__message')
 
 let flag = 0;
 
@@ -30,30 +29,19 @@ restartButton.addEventListener("click", function () {
 });
 
 // function that changes styles in portrait orientation
+
 function changeStylesPortraitOrientation() {
-	field.classList.add("portrait-orientation");
-	field.append(portraitOrientationTitle);
-	for (const item of field.children) {
-		if (item.tagName === "H1") {
-			break;
-		} else {
-			item.style.display = "none";
-		}
-	}
+	fieldImg.classList.add('field__portrait')
+	fieldImg.src = portraitImgSrc
+	portraitOrientationTitle.classList.add('field-orientation__message_show')
+
 }
 
 // function that changes styles in landscape orientation
 function changeStylesLandscapeOrientation() {
-	field.classList.remove("portrait-orientation");
-	portraitOrientationTitle.remove();
-	for (const item of field.children) {
-		if (item.className === "players-score") {
-			item.style.display = "flex";
-		}
-		else {
-			item.style.display = "block";
-		}
-	}
+	fieldImg.classList.remove('field__portrait')
+	fieldImg.src = fieldImgSrc
+	portraitOrientationTitle.classList.remove('field-orientation__message_show')
 }
 
 // check the orientation on mobile
