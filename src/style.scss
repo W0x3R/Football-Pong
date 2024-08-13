@@ -18,6 +18,11 @@
 		border-radius: 10px;
 	}
 
+	&__portrait {
+		z-index: 10;
+		position: relative;
+	}
+
 	&__ball {
 		@include position(absolute, 25px, 25px);
 		@include widthAndHight(70px, 70px);
