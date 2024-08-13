@@ -7,9 +7,9 @@ import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore
 import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
 import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
-import { setBallPositioningTransition } from './js/ball/setBallPositioningTransition';
 import { getItemSizes } from './js/sizes/getItemSizes';
 import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
+import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 
 const field = document.querySelector(".field");
 export const fieldImg = document.querySelector(".field__img");
@@ -29,13 +29,6 @@ restartButton.addEventListener("click", function () {
 });
 
 export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-
-const checkFlagResize = () => {
-	const getFlagCurrentValue = getSessionStorage('flag')
-	setBallPositioningTransition()
-	setBallVerticalPosition('top')
-	getFlagCurrentValue === '0' ? setBallHorizontalPosition('left') : setBallHorizontalPosition('right')
-};
 
 // function that changes styles in portrait orientation
 function changeStylesPortraitOrientation() {
@@ -76,14 +69,14 @@ const checkOrientation = () => {
 
 // resize event
 window.addEventListener("resize", () => {
-	checkFlagResize();
+	movingBallRelativeFlag();
 	checkOrientation();
 });
 
 // window load event
 window.addEventListener("load", () => {
 	checkOrientation();
-	checkFlagResize()
+	movingBallRelativeFlag()
 	checkSessionScorePresence()
 });
 
