@@ -1,5 +1,5 @@
 import { fieldImg, mathRandom } from "../..";
-import { getItemSizes } from "../getItemSizes";
+import { getItemSizes } from "../sizes/getItemSizes";
 
 export const ballImg = document.querySelector(".field__ball");
 

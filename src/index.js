@@ -8,7 +8,8 @@ import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
 import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
 import { setBallPositioningTransition } from './js/ball/setBallPositioningTransition';
-import { getItemSizes } from './js/getItemSizes';
+import { getItemSizes } from './js/sizes/getItemSizes';
+import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
 
 const field = document.querySelector(".field");
 export const fieldImg = document.querySelector(".field__img");
@@ -26,9 +27,6 @@ restartButton.addEventListener("click", function () {
 	setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
 	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 });
-
-const getCurrentCenterOfField = () =>
-	parseInt(getItemSizes(fieldImg, 'height') / 2) - getItemSizes(ballImg, 'width') / 2;
 
 export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
