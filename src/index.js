@@ -30,26 +30,11 @@ restartButton.addEventListener("click", function () {
 
 export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
-// left position during resize
-const positionLeft = () => {
-	setBallHorizontalPosition('left')
-	setBallVerticalPosition("top")
-};
-
-// right position during resize
-const positionRight = () => {
-	setBallHorizontalPosition('right')
-	setBallVerticalPosition('top')
-};
-
-// check flag during resize
 const checkFlagResize = () => {
+	const getFlagCurrentValue = getSessionStorage('flag')
 	setBallPositioningTransition()
-	if (sessionStorage.getItem("flag") === "0") {
-		positionLeft();
-	} else {
-		positionRight();
-	}
+	setBallVerticalPosition('top')
+	getFlagCurrentValue === '0' ? setBallHorizontalPosition('left') : setBallHorizontalPosition('right')
 };
 
 // function that changes styles in portrait orientation
@@ -63,7 +48,6 @@ function changeStylesPortraitOrientation() {
 			item.style.display = "none";
 		}
 	}
-	checkFlagResize()
 }
 
 // function that changes styles in landscape orientation
@@ -78,7 +62,6 @@ function changeStylesLandscapeOrientation() {
 			item.style.display = "block";
 		}
 	}
-	checkFlagResize()
 }
 
 // check the orientation on mobile
