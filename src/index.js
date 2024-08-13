@@ -6,10 +6,12 @@ import { getSessionStorage } from './js/storage/getSessionStorage';
 import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore/setPlayerScore';
 import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
+import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
+import { setBallPositioningTransition } from './js/ball/setBallPositioningTransition';
 
 // create variables
 const field = document.querySelector(".field");
-const ballImg = document.querySelector(".field__ball");
+
 const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
