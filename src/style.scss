@@ -9,6 +9,10 @@
 }
 
 .field {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	&__img {
 		@include widthAndHight(100%, 100vh);
 		border-radius: 10px;
