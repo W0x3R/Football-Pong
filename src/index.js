@@ -30,17 +30,16 @@ restartButton.addEventListener("click", function () {
 });
 
 //creating  functions to check the real values ​​of the width and height of element
-const getCurrentBallWidth = () => ballImg.width;
+export const getCurrentBallWidth = () => ballImg.width;
 
-const getCurrentFieldWidth = () => fieldImg.width;
+export const getCurrentFieldWidth = () => fieldImg.width;
 
 const getCurrentFieldHeight = () => fieldImg.height;
 
 const getCurrentCenterOfField = () =>
 	parseInt(getCurrentFieldHeight() / 2) - getCurrentBallWidth() / 2;
 
-// delay function
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 // left position during resize
 const positionLeft = () => {
@@ -136,7 +135,7 @@ function toggleScreen() {
 }
 
 // random top position
-function mathRandom() {
+export function mathRandom() {
 	let min = 25;
 	let max = Math.floor(getCurrentFieldHeight() - getCurrentBallWidth() - 25);
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -156,7 +155,6 @@ function playHitTheNet() {
 
 const checkWidthOfGoal = () => {
 	const center = getCurrentCenterOfField();
-	console.log(center);
 	const heights = [
 		{ min: 570, height: 183 },
 		{ min: 540, height: 172 },
@@ -184,7 +182,6 @@ const checkWidthOfGoal = () => {
 		return 18;
 	}
 };
-
 
 function showGoal(numberOfPlayer) {
 	delay(700).then(() => numberOfPlayer.style.color = "red")
