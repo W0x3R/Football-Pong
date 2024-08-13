@@ -43,22 +43,19 @@ export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 // left position during resize
 const positionLeft = () => {
-	ballImg.style.left = 25 + "px";
-	ballImg.style.top = 25 + "px";
-	delay(50).then(() => ballImg.style.transition = "none")
-	delay(300).then(() => ballImg.style.transition = "all 0.6s ease-in")
+	setBallHorizontalPosition('left')
+	setBallVerticalPosition("top")
 };
 
 // right position during resize
 const positionRight = () => {
-	ballImg.style.left = getCurrentFieldWidth() - getCurrentBallWidth() - 25 + "px";
-	ballImg.style.top = 25 + "px";
-	delay(50).then(() => ballImg.style.transition = "none")
-	delay(300).then(() => ballImg.style.transition = "all 0.6s ease-in")
+	setBallHorizontalPosition('right')
+	setBallVerticalPosition('top')
 };
 
 // check flag during resize
 const checkFlagResize = () => {
+	setBallPositioningTransition()
 	if (sessionStorage.getItem("flag") === "0") {
 		positionLeft();
 	} else {
@@ -200,8 +197,7 @@ function checkFirstPlayerScore() {
 			playGoalSound();
 			playerOneScore.textContent++
 			setSessionStorage('playerOneScore', playerOneScore.textContent)
-			ballImg.style.left = getCurrentFieldWidth() - 25;
-			ballImg.style.top = 25 + "px";
+			setBallVerticalPosition('top')
 		})
 		showGoal(playerOneScore);
 	}
@@ -218,8 +214,7 @@ function checkSecondPlayerScore() {
 			playGoalSound();
 			playerTwoScore.textContent++
 			setSessionStorage('playerTwoScore', playerTwoScore.textContent)
-			ballImg.style.left = 25 + "px";
-			ballImg.style.top = 25 + "px";
+			setBallVerticalPosition('top')
 		})
 		showGoal(playerTwoScore);
 	}
@@ -229,14 +224,14 @@ function checkSecondPlayerScore() {
 ballImg.addEventListener("click", function () {
 	playKickSound();
 	if (sessionStorage.getItem("flag") === "0") {
-		ballImg.style.left = getCurrentFieldWidth() - getCurrentBallWidth() - 25 + "px";
-		ballImg.style.top = mathRandom() + "px";
+		setBallHorizontalPosition('right')
+		setBallVerticalPosition('random')
 		checkFirstPlayerScore();
 		flag++;
 		setSessionStorage('flag', flag)
 	} else {
-		ballImg.style.left = 25 + "px";
-		ballImg.style.top = mathRandom() + "px";
+		setBallHorizontalPosition('left')
+		setBallVerticalPosition('random')
 		checkSecondPlayerScore();
 		flag = 0;
 		setSessionStorage('flag', flag)
