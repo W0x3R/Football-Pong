@@ -8,14 +8,12 @@ import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
 import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
 import { setBallPositioningTransition } from './js/ball/setBallPositioningTransition';
+import { getItemSizes } from './js/getItemSizes';
 
-// create variables
 const field = document.querySelector(".field");
-
-const fieldImg = document.querySelector(".field__img");
+export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
-
 const portraitOrientationTitle = document.createElement("h1");
 portraitOrientationTitle.textContent = "Please use landscape orientation and click on the icon to enable full screen mode for the game to work correctly!";
 portraitOrientationTitle.classList.add("portrait-orientation__message");
@@ -29,15 +27,8 @@ restartButton.addEventListener("click", function () {
 	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 });
 
-//creating  functions to check the real values ​​of the width and height of element
-export const getCurrentBallWidth = () => ballImg.width;
-
-export const getCurrentFieldWidth = () => fieldImg.width;
-
-const getCurrentFieldHeight = () => fieldImg.height;
-
 const getCurrentCenterOfField = () =>
-	parseInt(getCurrentFieldHeight() / 2) - getCurrentBallWidth() / 2;
+	parseInt(getItemSizes(fieldImg, 'height') / 2) - getItemSizes(ballImg, 'width') / 2;
 
 export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -134,7 +125,7 @@ function toggleScreen() {
 // random top position
 export function mathRandom() {
 	let min = 25;
-	let max = Math.floor(getCurrentFieldHeight() - getCurrentBallWidth() - 25);
+	let max = Math.floor(getItemSizes(fieldImg, 'height') - getItemSizes(ballImg, 'width') - 25);
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -237,4 +228,3 @@ ballImg.addEventListener("click", function () {
 		setSessionStorage('flag', flag)
 	}
 });
-
