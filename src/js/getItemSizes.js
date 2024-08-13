@@ -1,0 +1,1 @@
+export const getItemSizes = (item, value) => item[value]
