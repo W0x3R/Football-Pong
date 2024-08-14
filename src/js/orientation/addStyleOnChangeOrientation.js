@@ -1,4 +1,4 @@
-import { fieldImg } from ".."
+import { fieldImg } from "../.."
 
 const portraitOrientationTitle = document.querySelector('.field-orientation__message')
 

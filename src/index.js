@@ -11,9 +11,7 @@ import { getItemSizes } from './js/sizes/getItemSizes';
 import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
 import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { delay } from './js/delay';
-import portraitImgSrc from './images/website-images/portrait-orientation-img.jpg'
-import fieldImgSrc from './images/website-images/field.jpg'
-import { addStyleOnChangeOrientation } from './js/addStyleOnChangeOrientation';
+import { checkOrientation } from './js/orientation/checkOrientation';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
@@ -27,12 +25,6 @@ restartButton.addEventListener("click", function () {
 	setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
 	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 });
-
-
-// check the orientation on mobile
-const checkOrientation = () => {
-	window.matchMedia("(orientation: portrait)").matches ? addStyleOnChangeOrientation('add', portraitImgSrc) : addStyleOnChangeOrientation('remove', fieldImgSrc)
-};
 
 // resize event
 window.addEventListener("resize", () => {
