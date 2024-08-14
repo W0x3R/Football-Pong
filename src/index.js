@@ -13,11 +13,11 @@ import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { delay } from './js/delay';
 import portraitImgSrc from './images/website-images/portrait-orientation-img.jpg'
 import fieldImgSrc from './images/website-images/field.jpg'
+import { addStyleOnChangeOrientation } from './js/addStyleOnChangeOrientation';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
-const portraitOrientationTitle = document.querySelector('.field-orientation__message')
 
 let flag = 0;
 
@@ -28,30 +28,10 @@ restartButton.addEventListener("click", function () {
 	setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 });
 
-// function that changes styles in portrait orientation
-
-function changeStylesPortraitOrientation() {
-	fieldImg.classList.add('field__portrait')
-	fieldImg.src = portraitImgSrc
-	portraitOrientationTitle.classList.add('field-orientation__message_show')
-
-}
-
-// function that changes styles in landscape orientation
-function changeStylesLandscapeOrientation() {
-	fieldImg.classList.remove('field__portrait')
-	fieldImg.src = fieldImgSrc
-	portraitOrientationTitle.classList.remove('field-orientation__message_show')
-}
 
 // check the orientation on mobile
 const checkOrientation = () => {
-	if (window.matchMedia("(orientation: portrait)").matches) {
-		changeStylesPortraitOrientation()
-	}
-	if (window.matchMedia("(orientation: landscape)").matches) {
-		changeStylesLandscapeOrientation()
-	}
+	window.matchMedia("(orientation: portrait)").matches ? addStyleOnChangeOrientation('add', portraitImgSrc) : addStyleOnChangeOrientation('remove', fieldImgSrc)
 };
 
 // resize event
