@@ -12,6 +12,7 @@ import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
 import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { delay } from './js/delay';
 import { checkOrientation } from './js/orientation/checkOrientation';
+import { toggleFullScreen } from './js/toggleFullScreen';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
@@ -40,20 +41,7 @@ window.addEventListener("load", () => {
 });
 
 // toggle fullscreen
-fullscreen.addEventListener("click", toggleScreen);
-
-function toggleScreen() {
-	const document = window.document;
-	const html = document.documentElement;
-
-	const requestFullScreen = html.requestFullscreen || html.mozRequestFullScreen || html.webkitRequestFullScreen || html.msRequestFullscreen;
-	const cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
-	if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-		requestFullScreen.call(html);
-	} else {
-		cancelFullScreen.call(document);
-	}
-}
+fullscreen.addEventListener("click", toggleFullScreen);
 
 // random top position
 export function mathRandom() {
