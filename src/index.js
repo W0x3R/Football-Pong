@@ -12,6 +12,7 @@ import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { delay } from './js/delay';
 import { checkOrientation } from './js/orientation/checkOrientation';
 import { toggleFullScreen } from './js/toggleFullScreen';
+import { playSounds } from './js/sounds/playSounds';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
@@ -41,18 +42,6 @@ window.addEventListener("load", () => {
 
 // toggle fullscreen
 fullscreen.addEventListener("click", toggleFullScreen);
-
-function playKickSound() {
-	new Audio(kickSound).play();
-}
-
-function playGoalSound() {
-	new Audio(goalSound).play();
-}
-
-function playHitTheNet() {
-	new Audio(hitBallSounds).play()
-}
 
 const checkWidthOfGoal = () => {
 	const center = getCurrentCenterOfField();
@@ -94,11 +83,11 @@ function checkFirstPlayerScore() {
 		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkWidthOfGoal() &&
 		parseInt(ballImg.style.top) >= getCurrentCenterOfField() - checkWidthOfGoal()
 	) {
-		delay(200).then(playHitTheNet)
+		delay(200).then(playSounds(hitBallSounds))
 		flag = 1;
 		setSessionStorage('flag', flag)
 		delay(700).then(() => {
-			playGoalSound();
+			playSounds(goalSound)
 			playerOneScore.textContent++
 			setSessionStorage('playerOneScore', playerOneScore.textContent)
 			setBallVerticalPosition('top')
@@ -113,9 +102,9 @@ function checkSecondPlayerScore() {
 		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkWidthOfGoal() &&
 		parseInt(ballImg.style.top) >= getCurrentCenterOfField() - checkWidthOfGoal()
 	) {
-		delay(200).then(playHitTheNet)
+		delay(200).then(playSounds(hitBallSounds))
 		delay(700).then(() => {
-			playGoalSound();
+			playSounds(goalSound)
 			playerTwoScore.textContent++
 			setSessionStorage('playerTwoScore', playerTwoScore.textContent)
 			setBallVerticalPosition('top')
@@ -126,7 +115,7 @@ function checkSecondPlayerScore() {
 
 // event click on ball
 ballImg.addEventListener("click", function () {
-	playKickSound();
+	playSounds(kickSound)
 	if (sessionStorage.getItem("flag") === "0") {
 		setBallHorizontalPosition('right')
 		setBallVerticalPosition('random')
