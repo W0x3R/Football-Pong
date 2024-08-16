@@ -13,6 +13,7 @@ import { delay } from './js/delay';
 import { checkOrientation } from './js/orientation/checkOrientation';
 import { toggleFullScreen } from './js/toggleFullScreen';
 import { playSounds } from './js/sounds/playSounds';
+import { checkGoalsCoordinates } from './js/checkGoalsCoordinates';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
@@ -43,36 +44,6 @@ window.addEventListener("load", () => {
 // toggle fullscreen
 fullscreen.addEventListener("click", toggleFullScreen);
 
-const checkWidthOfGoal = () => {
-	const center = getCurrentCenterOfField();
-	const heights = [
-		{ min: 570, height: 183 },
-		{ min: 540, height: 172 },
-		{ min: 520, height: 164 },
-		{ min: 500, height: 157 },
-		{ min: 470, height: 145 },
-		{ min: 446, height: 137 },
-		{ min: 420, height: 127 },
-		{ min: 388, height: 116 },
-		{ min: 360, height: 108 },
-		{ min: 332, height: 100 },
-		{ min: 300, height: 88 },
-		{ min: 282, height: 78 },
-		{ min: 261.5, height: 76 },
-		{ min: 246.5, height: 73 },
-		{ min: 223.5, height: 68 },
-		{ min: 208.5, height: 62 },
-	]
-	for (const item of heights) {
-		if (center >= item.min) {
-			return item.height
-		}
-	}
-	if (center < 208.5) {
-		return 18;
-	}
-};
-
 function showGoal(numberOfPlayer) {
 	delay(700).then(() => numberOfPlayer.style.color = "red")
 	delay(1600).then(() => numberOfPlayer.style.color = "#e4ff00")
@@ -80,8 +51,8 @@ function showGoal(numberOfPlayer) {
 
 function checkFirstPlayerScore() {
 	if (
-		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkWidthOfGoal() &&
-		parseInt(ballImg.style.top) >= getCurrentCenterOfField() - checkWidthOfGoal()
+		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkGoalsCoordinates() &&
+		parseInt(ballImg.style.top) >= getCurrentCenterOfField() - checkGoalsCoordinates()
 	) {
 		delay(200).then(playSounds(hitBallSounds))
 		flag = 1;
@@ -99,8 +70,8 @@ function checkFirstPlayerScore() {
 //check second player goals
 function checkSecondPlayerScore() {
 	if (
-		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkWidthOfGoal() &&
-		parseInt(ballImg.style.top) >= getCurrentCenterOfField() - checkWidthOfGoal()
+		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkGoalsCoordinates() &&
+		parseInt(ballImg.style.top) >= getCurrentCenterOfField() - checkGoalsCoordinates()
 	) {
 		delay(200).then(playSounds(hitBallSounds))
 		delay(700).then(() => {
