@@ -1,0 +1,1 @@
+export const getBallBackOutField = (value = '10') => value
