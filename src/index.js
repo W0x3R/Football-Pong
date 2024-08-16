@@ -14,6 +14,7 @@ import { checkOrientation } from './js/orientation/checkOrientation';
 import { toggleFullScreen } from './js/toggleFullScreen';
 import { playSounds } from './js/sounds/playSounds';
 import { checkGoalsCoordinates } from './js/goal/checkGoalsCoordinates';
+import { controlGoalStyles } from './js/goal/controlGoalStyles';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
@@ -44,11 +45,6 @@ window.addEventListener("load", () => {
 // toggle fullscreen
 fullscreen.addEventListener("click", toggleFullScreen);
 
-function showGoal(numberOfPlayer) {
-	delay(700).then(() => numberOfPlayer.style.color = "red")
-	delay(1600).then(() => numberOfPlayer.style.color = "#e4ff00")
-}
-
 function checkFirstPlayerScore() {
 	if (
 		parseInt(ballImg.style.top) <= getCurrentCenterOfField() + checkGoalsCoordinates() &&
@@ -63,7 +59,7 @@ function checkFirstPlayerScore() {
 			setSessionStorage('playerOneScore', playerOneScore.textContent)
 			setBallVerticalPosition('top')
 		})
-		showGoal(playerOneScore);
+		controlGoalStyles(playerOneScore);
 	}
 
 }
@@ -80,7 +76,7 @@ function checkSecondPlayerScore() {
 			setSessionStorage('playerTwoScore', playerTwoScore.textContent)
 			setBallVerticalPosition('top')
 		})
-		showGoal(playerTwoScore);
+		controlGoalStyles(playerTwoScore);
 	}
 }
 
