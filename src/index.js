@@ -13,7 +13,7 @@ import { delay } from './js/delay';
 import { checkOrientation } from './js/orientation/checkOrientation';
 import { toggleFullScreen } from './js/toggleFullScreen';
 import { playSounds } from './js/sounds/playSounds';
-import { checkGoalsCoordinates } from './js/checkGoalsCoordinates';
+import { checkGoalsCoordinates } from './js/goal/checkGoalsCoordinates';
 
 export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");

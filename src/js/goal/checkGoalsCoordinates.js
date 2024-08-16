@@ -1,5 +1,5 @@
 import { heightsOfGoalArea } from "./heightsOfGoalArea";
-import { getCurrentCenterOfField } from "./sizes/getCurrentCenterOfField";
+import { getCurrentCenterOfField } from "../sizes/getCurrentCenterOfField";
 
 export const checkGoalsCoordinates = () => {
 	const center = getCurrentCenterOfField();
