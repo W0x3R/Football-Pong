@@ -1,5 +1,6 @@
-import { fieldImg, mathRandom } from "../..";
+import { fieldImg } from "../..";
 import { getItemSizes } from "../sizes/getItemSizes";
+import { generateRandomTopValue } from "./generateRandomTopValue";
 
 export const ballImg = document.querySelector(".field__ball");
 
@@ -9,6 +10,6 @@ export const setBallHorizontalPosition = (neededPos) => {
 }
 
 export const setBallVerticalPosition = (neededPos) => {
-	let currentPos = neededPos === 'top' ? '25px' : mathRandom() + "px"
+	let currentPos = neededPos === 'top' ? '25px' : generateRandomTopValue() + "px"
 	ballImg.style.top = currentPos;
 }

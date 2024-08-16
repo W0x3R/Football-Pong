@@ -7,7 +7,6 @@ import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore
 import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
 import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
-import { getItemSizes } from './js/sizes/getItemSizes';
 import { getCurrentCenterOfField } from './js/sizes/getCurrentCenterOfField';
 import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { delay } from './js/delay';
@@ -42,13 +41,6 @@ window.addEventListener("load", () => {
 
 // toggle fullscreen
 fullscreen.addEventListener("click", toggleFullScreen);
-
-// random top position
-export function mathRandom() {
-	let min = 25;
-	let max = Math.floor(getItemSizes(fieldImg, 'height') - getItemSizes(ballImg, 'width') - 25);
-	return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 function playKickSound() {
 	new Audio(kickSound).play();
