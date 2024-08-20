@@ -11,7 +11,6 @@ import { toggleFullScreen } from './js/toggleFullScreen';
 import { playSounds } from './js/sounds/playSounds';
 import { setPlayersScore } from './js/goal/setPlayersScore';
 
-export const fieldImg = document.querySelector(".field__img");
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
 
@@ -48,7 +47,7 @@ ballImg.addEventListener("click", function () {
 		setBallHorizontalPosition('right')
 		setBallVerticalPosition('random')
 		setPlayersScore(playerOneScore, 'playerOneScore')
-		flag++;
+		flag = 1;
 		setSessionStorage('flag', flag)
 	} else {
 		setBallHorizontalPosition('left')

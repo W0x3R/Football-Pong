@@ -1,4 +1,4 @@
-import { fieldImg } from "../..";
+import { fieldImg } from "../orientation/addStyleOnChangeOrientation";
 import { ballImg } from "../ball/setBallPosition";
 import { getItemSizes } from "./getItemSizes";
 

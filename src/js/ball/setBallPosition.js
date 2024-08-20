@@ -1,4 +1,4 @@
-import { fieldImg } from "../..";
+import { fieldImg } from "../orientation/addStyleOnChangeOrientation";
 import { getItemSizes } from "../sizes/getItemSizes";
 import { generateRandomTopValue } from "./generateRandomTopValue";
 import { getBallBackOutField } from "./getBallBackOutField";

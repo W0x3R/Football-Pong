@@ -1,6 +1,5 @@
-import { fieldImg } from "../.."
-
 const portraitOrientationTitle = document.querySelector('.field-orientation__message')
+export const fieldImg = document.querySelector(".field__img");
 
 export const addStyleOnChangeOrientation = (value, fieldImgSrc) => {
 	fieldImg.src = fieldImgSrc
