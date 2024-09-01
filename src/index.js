@@ -5,8 +5,8 @@ import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore
 import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
 import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
-import { movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
-import { checkOrientation } from './js/orientation/checkOrientation';
+import { debounceMovingBallRelativeFlag, movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
+import { checkOrientation, debounceCheckOrientation } from './js/orientation/checkOrientation';
 import { toggleFullScreen } from './js/toggleFullScreen';
 import { playSounds } from './js/sounds/playSounds';
 import { setPlayersScore } from './js/goal/setPlayersScore';
@@ -25,8 +25,8 @@ restartButton.addEventListener("click", function () {
 
 // resize event
 window.addEventListener("resize", () => {
-	movingBallRelativeFlag();
-	checkOrientation();
+	debounceMovingBallRelativeFlag()
+	debounceCheckOrientation()
 });
 
 // window load event
