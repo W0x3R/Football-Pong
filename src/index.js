@@ -1,20 +1,16 @@
 import './style.scss';
-import kickSound from './sounds/kick.mp3'
 import { getSessionStorage } from './js/storage/getSessionStorage';
 import { playerOneScore, playerTwoScore, setPlayerScore } from './js/playerScore/setPlayerScore';
 import { setSessionStorage } from './js/storage/setSessionStorage';
 import { checkSessionScorePresence } from './js/playerScore/checkSessionScoreExists';
-import { ballImg, setBallHorizontalPosition, setBallVerticalPosition } from './js/ball/setBallPosition';
+import { ballImg } from './js/ball/setBallPosition';
 import { debounceMovingBallRelativeFlag, movingBallRelativeFlag } from './js/ball/movingBallRelativeFlag';
 import { checkOrientation, debounceCheckOrientation } from './js/orientation/checkOrientation';
 import { toggleFullScreen } from './js/toggleFullScreen';
-import { playSounds } from './js/sounds/playSounds';
-import { setPlayersScore } from './js/goal/setPlayersScore';
+import { movingBallOnClick } from './js/ball/movingBallOnClick';
 
 const restartButton = document.querySelector(".field__restart-btn");
 const fullscreen = document.querySelector(".fullscreen-toggle");
-
-let flag = 0;
 
 restartButton.addEventListener("click", function () {
 	setSessionStorage("playerOneScore", 0)
@@ -42,18 +38,9 @@ fullscreen.addEventListener("click", toggleFullScreen);
 
 // event click on ball
 ballImg.addEventListener("click", function () {
-	playSounds(kickSound)
 	if (sessionStorage.getItem("flag") === "0") {
-		setBallHorizontalPosition('right')
-		setBallVerticalPosition('random')
-		setPlayersScore(playerOneScore, 'playerOneScore')
-		flag = 1;
-		setSessionStorage('flag', flag)
+		movingBallOnClick('right', playerOneScore, 'playerOneScore', 1)
 	} else {
-		setBallHorizontalPosition('left')
-		setBallVerticalPosition('random')
-		setPlayersScore(playerTwoScore, 'playerTwoScore')
-		flag = 0;
-		setSessionStorage('flag', flag)
+		movingBallOnClick('left', playerTwoScore, 'playerTwoScore', 0)
 	}
 });
