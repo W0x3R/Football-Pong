@@ -16,11 +16,24 @@
 	&__img {
 		@include widthAndHight(100%, 100vh);
 		border-radius: 10px;
+
+		&_hide {
+			display: none;
+		}
 	}
 
-	&__portrait {
-		z-index: 10;
-		position: relative;
+	&__portrait-image {
+		display: none;
+		width: 100vw;
+		height: 100vh;
+		object-fit: cover;
+		object-position: center;
+
+		&_show {
+			display: block;
+			z-index: 10;
+			position: relative;
+		}
 	}
 
 	&__ball {
