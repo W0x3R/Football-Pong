@@ -131,13 +131,14 @@
 .field-orientation__message {
 	position: absolute;
 	padding: 10px;
-	font-size: clamp(33px, 8vw, 40px);
+	font-size: clamp(33px, 8vw, 48px);
 	text-align: center;
 	color: #fbff00;
 	display: none;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	min-width: 90%;
 
 	&_show {
 		display: block;
