@@ -2,16 +2,10 @@
 @import './sass/mixins';
 
 .container {
-	max-width: 1680px;
 	margin: 0 auto;
-	position: relative;
-	height: 100vh;
 }
 
 .field {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 
 	&__img {
 		@include widthAndHight(100%, 100vh);
@@ -138,15 +132,18 @@
 }
 
 .field-orientation__message {
+	position: absolute;
 	padding: 10px;
 	font-size: clamp(33px, 8vw, 40px);
 	text-align: center;
 	color: #fbff00;
 	display: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 
 	&_show {
 		display: block;
-		position: absolute;
 		z-index: 11;
 		max-width: 640px
 	}
