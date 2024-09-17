@@ -1,12 +1,7 @@
 @import './sass/normalize';
 @import './sass/mixins';
 
-.container {
-	margin: 0 auto;
-}
-
 .field {
-
 	&__img {
 		@include widthAndHight(100%, 100vh);
 		border-radius: 10px;
