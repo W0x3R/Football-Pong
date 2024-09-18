@@ -1,4 +1,3 @@
-import { fieldImg } from "../orientation/addStyleOnChangeOrientation"
 import { getItemSizes } from "../sizes/getItemSizes"
 import { generateRandomTopValue } from "./generateRandomTopValue"
 import { getBallBackOutField } from "./getBallBackOutField"
@@ -9,7 +8,7 @@ export const setBallHorizontalPosition = (neededPos) => {
 	let currentPos =
 		neededPos === "left"
 			? `${getBallBackOutField()}px`
-			: getItemSizes(window, "innerWidth") -
+			: getItemSizes(document.documentElement, "clientWidth") -
 			  getItemSizes(ballImg, "width") -
 			  getBallBackOutField() +
 			  "px"
