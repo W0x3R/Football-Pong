@@ -68,7 +68,7 @@
 .players-score {
 	position: absolute;
 	left: 50%;
-	top: 20px;
+	top: 15px;
 	transform: translateX(-50%);
 	@include widthAndHight(300px, 50px);
 	display: flex;
