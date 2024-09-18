@@ -104,32 +104,6 @@
 	}
 }
 
-.created-by {
-	@include position(absolute, calc(50% - 220px), auto, auto, 25px);
-	@include widthAndHight(440px);
-	text-align: center;
-	border-radius: 10px;
-	border: 3px solid black;
-	background: aliceblue;
-	user-select: none;
-	transition: all 0.5s ease;
-
-	@media (hover: hover) {
-		&:hover {
-			background: #b9b9b9;
-		}
-	}
-
-	@media (hover: none) {
-		&:hover {
-			background: #b9b9b9;
-		}
-	}
-
-	&__title {
-		font-size: 24px;
-	}
-}
 
 .field-orientation__message {
 	position: absolute;
