@@ -17,7 +17,6 @@
 
 	.players-score {
 		width: 240px;
-		left: calc(50.1% - 120px);
 
 		&__inner {
 			width: 45px;
@@ -31,7 +30,7 @@
 
 	.fullscreen-toggle {
 		@include widthAndHight(35px, 35px);
-		left: calc(50% - 17.5px);
+
 		&:hover {
 			@include widthAndHight(34px, 34px);
 		}
@@ -66,7 +65,6 @@
 
 	.players-score {
 		width: 240px;
-		left: calc(50.1% - 120px);
 
 		&__inner {
 			@include widthAndHight(45px, 40px);
@@ -79,7 +77,7 @@
 
 	.fullscreen-toggle {
 		@include widthAndHight(35px, 35px);
-		left: calc(50% - 17.5px);
+
 		&:hover {
 			@include widthAndHight(34px, 34px);
 		}
