@@ -75,7 +75,7 @@
 	justify-content: space-between;
 
 	&__inner {
-		@include widthAndHight(55px, 50px);
+		@include widthAndHight(52px, 48px);
 		display: flex;
 		border: 3px solid #ffc800;
 		justify-content: center;
