@@ -5,7 +5,22 @@
 	right: $right;
 	bottom: $bottom;
 }
+
 @mixin widthAndHight($width, $height: auto) {
 	width: $width;
 	height: $height;
+}
+
+@mixin пше {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+
+	@media (hover: none) {
+		&:active {
+			@content;
+		}
+	}
 }
