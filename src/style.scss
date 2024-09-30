@@ -34,7 +34,10 @@
 	}
 
 	&__restart-btn {
-		@include position(absolute, calc(50% - 65px), 75px);
+		position: absolute;
+		left: 50%;
+		top: 75px;
+		transform: translate(-50%, -2px);
 		@include widthAndHight(130px, 30px);
 		padding: 3px;
 		font-size: 19px;
