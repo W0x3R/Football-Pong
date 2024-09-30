@@ -46,21 +46,13 @@
 		letter-spacing: 1px;
 		user-select: none;
 		transition: all 0.5s ease;
+		box-shadow: 2px 4px 0px 0px #000;
 
-		@media (hover: hover) {
-			&:hover {
-				font-size: 18px;
-				border: 2px solid black;
-				box-shadow: 2px 4px 0px 0px #000;
-			}
-		}
-
-		@media (hover: none) {
-			&:hover {
-				font-size: 18px;
-				border: 2px solid black;
-				box-shadow: 2px 4px 0px 0px #000;
-			}
+		@include hoverOrActive {
+			font-size: 18px;
+			border: 2px solid black;
+			box-shadow: none;
+			transform: translate(-50%, 2px);
 		}
 	}
 }
