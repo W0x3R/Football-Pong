@@ -1,0 +1,14 @@
+$tabletWidth: 768px;
+$tabletHeight: 610px;
+
+@mixin tabletWidth {
+	@media only screen and (max-width: $tabletWidth) {
+		@content;
+	}
+}
+
+@mixin tabletHeight {
+	@media only screen and (max-height: $tabletHeight) {
+		@content;
+	}
+}
