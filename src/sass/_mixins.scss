@@ -11,7 +11,7 @@
 	height: $height;
 }
 
-@mixin пше {
+@mixin hoverOrActive {
 	@media (hover: hover) {
 		&:hover {
 			@content;
