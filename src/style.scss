@@ -1,5 +1,6 @@
 @import './sass/normalize';
 @import './sass/mixins';
+@import './sass/adaptive';
 
 .field {
 	&__img {
@@ -31,6 +32,14 @@
 		cursor: pointer;
 		user-select: none;
 		-webkit-tap-highlight-color: transparent;
+
+		@include tabletWidth {
+			@include widthAndHight(40px, 40px);
+		}
+
+		@include tabletHeight {
+			@include widthAndHight(45px, 45px);
+		}
 	}
 
 	&__restart-btn {
@@ -51,8 +60,17 @@
 		transition: all 0.5s ease;
 		box-shadow: 2px 4px 0px 0px #000;
 
+		@include tabletWidth {
+			@include widthAndHight(110px, 25px);
+			font-size: 15px;
+		}
+
+		@include tabletHeight {
+			@include widthAndHight(100px, 25px);
+			font-size: 15px;
+		}
+
 		@include hoverOrActive {
-			font-size: 18px;
 			border: 2px solid black;
 			box-shadow: none;
 			transform: translate(-50%, 2px);
@@ -69,18 +87,42 @@
 	display: flex;
 	justify-content: space-between;
 
+	@include tabletWidth {
+		width: 240px;
+	}
+
+	@include tabletHeight {
+		width: 240px;
+	}
+
 	&__inner {
 		@include widthAndHight(52px, 48px);
 		display: flex;
 		border: 3px solid #ffc800;
 		justify-content: center;
 		align-items: center;
+
+		@include tabletWidth {
+			@include widthAndHight(45px, 40px)
+		}
+
+		@include tabletHeight {
+			@include widthAndHight(45px, 40px);
+		}
 	}
 
 	&__title {
 		font-size: 45px;
 		color: #e4ff00;
 		user-select: none;
+
+		@include tabletWidth {
+			font-style: 36px;
+		}
+
+		@include tabletHeight {
+			font-size: 36px;
+		}
 	}
 }
 
@@ -93,10 +135,26 @@
 	user-select: none;
 	transition: 0.3s;
 
-	&:hover {
-		width: 39px;
-		height: 39px;
+	@include tabletWidth {
+		@include widthAndHight(35px, 35px);
+
+		@include hoverOrActive {
+			@include widthAndHight(34px, 34px);
+		}
 	}
+
+	@include tabletHeight {
+		@include widthAndHight(35px, 35px);
+
+		@include hoverOrActive {
+			@include widthAndHight(34px, 34px);
+		}
+	}
+
+	@include hoverOrActive {
+		@include widthAndHight(39px, 39px);
+	}
+
 }
 
 
@@ -117,5 +175,3 @@
 		z-index: 11;
 	}
 }
-
-@import './sass/adaptive780';
