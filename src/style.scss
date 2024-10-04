@@ -9,7 +9,7 @@ body {
 
 .field {
 	&__img {
-		@include widthAndHight(100%, 100vh);
+		@include sizes(100%, 100vh);
 		border-radius: 10px;
 
 		&_hide {
@@ -19,8 +19,7 @@ body {
 
 	&__portrait-image {
 		display: none;
-		width: 100vw;
-		height: 100vh;
+		@include sizes(100vw, 100vh);
 		object-fit: cover;
 
 		&_show {
@@ -32,18 +31,18 @@ body {
 
 	&__ball {
 		position: absolute;
-		@include widthAndHight(70px, 70px);
+		@include sizes(70px, 70px);
 		transition: all 0.6s ease-in;
 		cursor: pointer;
 		user-select: none;
 		-webkit-tap-highlight-color: transparent;
 
 		@include tabletWidth {
-			@include widthAndHight(40px, 40px);
+			@include sizes(53px, 55px);
 		}
 
 		@include tabletHeight {
-			@include widthAndHight(45px, 45px);
+			@include sizes(53px, 55px);
 		}
 	}
 
@@ -52,7 +51,7 @@ body {
 		left: 50%;
 		top: 75px;
 		transform: translate(-50%, -2px);
-		@include widthAndHight(130px, 30px);
+		@include sizes(125px, 30px);
 		padding: 3px;
 		font-size: 18px;
 		z-index: 1;
@@ -66,12 +65,12 @@ body {
 		box-shadow: 2px 4px 0px 0px #000;
 
 		@include tabletWidth {
-			@include widthAndHight(110px, 25px);
+			@include sizes(110px, 26px);
 			font-size: 15px;
 		}
 
 		@include tabletHeight {
-			@include widthAndHight(100px, 25px);
+			@include sizes(110px, 26px);
 			font-size: 15px;
 		}
 
@@ -87,10 +86,10 @@ body {
 	position: absolute;
 	left: 50%;
 	top: 15px;
-	transform: translateX(-50%);
-	@include widthAndHight(300px, 50px);
 	display: flex;
 	justify-content: space-between;
+	transform: translateX(-50%);
+	@include sizes(300px, 50px);
 
 	@include tabletWidth {
 		width: 240px;
@@ -101,18 +100,17 @@ body {
 	}
 
 	&__inner {
-		@include widthAndHight(52px, 48px);
 		display: flex;
 		border: 3px solid #ffc800;
 		justify-content: center;
 		align-items: center;
 
 		@include tabletWidth {
-			@include widthAndHight(45px, 40px)
+			@include sizes(45px, 40px)
 		}
 
 		@include tabletHeight {
-			@include widthAndHight(45px, 40px);
+			@include sizes(45px, 40px);
 		}
 	}
 
@@ -141,25 +139,24 @@ body {
 	transition: 0.3s;
 
 	@include tabletWidth {
-		@include widthAndHight(35px, 35px);
+		@include sizes(35px, 35px);
 
 		@include hoverOrActive {
-			@include widthAndHight(34px, 34px);
+			@include sizes(34px, 34px);
 		}
 	}
 
 	@include tabletHeight {
-		@include widthAndHight(35px, 35px);
+		@include sizes(35px, 35px);
 
 		@include hoverOrActive {
-			@include widthAndHight(34px, 34px);
+			@include sizes(34px, 34px);
 		}
 	}
 
 	@include hoverOrActive {
-		@include widthAndHight(39px, 39px);
+		@include sizes(39px, 39px);
 	}
-
 }
 
 
