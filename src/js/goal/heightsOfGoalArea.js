@@ -1,5 +1,4 @@
 export const heightsOfGoalArea = [
-	{ min: 570, height: 200 },
 	{ min: 540, height: 175 },
 	{ min: 520, height: 164 },
 	{ min: 500, height: 157 },
@@ -7,13 +6,13 @@ export const heightsOfGoalArea = [
 	{ min: 446, height: 137 },
 	{ min: 420, height: 127 },
 	{ min: 388, height: 116 },
-	{ min: 360, height: 108 },
+	{ min: 360, height: 106 },
 	{ min: 332, height: 100 },
-	{ min: 300, height: 88 },
+	{ min: 300, height: 84 },
 	{ min: 282, height: 78 },
 	{ min: 261.5, height: 76 },
 	{ min: 246.5, height: 73 },
 	{ min: 223.5, height: 68 },
 	{ min: 208.5, height: 62 },
-	{ min: 0, height: 18 },
+	{ min: 0, height: 40 }
 ]
