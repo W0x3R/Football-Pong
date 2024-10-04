@@ -101,9 +101,10 @@ body {
 
 	&__inner {
 		display: flex;
-		border: 3px solid #ffc800;
 		justify-content: center;
 		align-items: center;
+		@include sizes(52px, 48px);
+		border: 3px solid #ffc800;
 
 		@include tabletWidth {
 			@include sizes(45px, 40px)
@@ -162,15 +163,19 @@ body {
 
 .field-orientation__message {
 	position: absolute;
-	padding: 10px;
-	font-size: clamp(33px, 8vw, 48px);
-	text-align: center;
-	color: #fbff00;
-	display: none;
 	top: 50%;
 	left: 50%;
+	display: none;
+	padding: 10px;
 	transform: translate(-50%, -50%);
 	min-width: 90%;
+	font-size: clamp(28px, 8vw, 42px);
+	line-height: 1.25;
+	text-align: center;
+	background: #000000b8;
+	border-radius: 20px;
+	color: #ffffff;
+	user-select: none;
 
 	&_show {
 		display: block;
