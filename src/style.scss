@@ -115,16 +115,16 @@ body {
 	}
 
 	&__title {
-		font-size: 45px;
+		font-size: 42px;
 		color: #e4ff00;
 		user-select: none;
 
 		@include tabletWidth {
-			font-style: 36px;
+			font-size: 35px;
 		}
 
 		@include tabletHeight {
-			font-size: 36px;
+			font-size: 35px;
 		}
 	}
 }
