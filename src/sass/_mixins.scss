@@ -3,6 +3,12 @@
 	height: $height;
 }
 
+@mixin posAbsoluteLeftTop($left, $top) {
+	position: absolute;
+	left: $left;
+	top: $top;
+}
+
 @mixin hoverOrActive {
 	@media (hover: hover) {
 		&:hover {
