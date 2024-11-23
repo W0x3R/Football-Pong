@@ -18,10 +18,10 @@
 
 ## Features
 
-    ➖ When you click on the ball, it moves in a random direction.
-    ➖ When the screen height is greater than the screen width, a pop-up window appears to warn the player to move the phone to a horizontal position to display the game correctly.
-    ➖ There is an option to enable full screen mode, which is designed to display the game correctly.
-    ➖ Goals are tallied for each player.
+- When you click on the ball, it moves in a random direction.
+- When the screen height is greater than the screen width, a pop-up window appears to warn the player to move the phone to a horizontal position to display the game correctly.
+- There is an option to enable full screen mode, which is designed to display the game correctly.
+- Goals are tallied for each player.
 
 ## Run the project locally:
 
