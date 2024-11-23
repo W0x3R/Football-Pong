@@ -9,7 +9,7 @@ body {
 
 .field {
 	&__img {
-		@include sizes(100%, 100vh);
+		@include mixins.sizes(100%, 100vh);
 		border-radius: 10px;
 
 		&_hide {
@@ -19,7 +19,7 @@ body {
 
 	&__portrait-image {
 		display: none;
-		@include sizes(100vw, 100vh);
+		@include mixins.sizes(100vw, 100vh);
 		object-fit: cover;
 
 		&_show {
@@ -31,27 +31,25 @@ body {
 
 	&__ball {
 		position: absolute;
-		@include sizes(70px, 70px);
+		@include mixins.sizes(70px, 70px);
 		transition: all 0.6s ease-in;
 		cursor: pointer;
 		user-select: none;
 		-webkit-tap-highlight-color: transparent;
 
-		@include tabletWidth {
-			@include sizes(53px, 55px);
+		@include media.tabletWidth {
+			@include mixins.sizes(53px, 55px);
 		}
 
-		@include tabletHeight {
-			@include sizes(53px, 55px);
+		@include media.tabletHeight {
+			@include mixins.sizes(53px, 55px);
 		}
 	}
 
 	&__restart-btn {
-		position: absolute;
-		left: 50%;
-		top: 75px;
+		@include mixins.posAbsoluteLeftTop(50%, 75px);
 		transform: translate(-50%, -2px);
-		@include sizes(125px, 30px);
+		@include mixins.sizes(125px, 30px);
 		padding: 3px;
 		font-size: 17px;
 		z-index: 1;
@@ -64,17 +62,17 @@ body {
 		transition: all 0.5s ease;
 		box-shadow: 2px 4px 0px 0px #000;
 
-		@include tabletWidth {
-			@include sizes(110px, 26px);
+		@include media.tabletWidth {
+			@include mixins.sizes(110px, 26px);
 			font-size: 15px;
 		}
 
-		@include tabletHeight {
-			@include sizes(110px, 26px);
+		@include media.tabletHeight {
+			@include mixins.sizes(110px, 26px);
 			font-size: 15px;
 		}
 
-		@include hoverOrActive {
+		@include mixins.hoverOrActive {
 			border: 2px solid black;
 			box-shadow: none;
 			transform: translate(-50%, 2px);
@@ -83,19 +81,17 @@ body {
 }
 
 .players-score {
-	position: absolute;
-	left: 50%;
-	top: 15px;
+	@include mixins.posAbsoluteLeftTop(50%, 15px);
 	display: flex;
 	justify-content: space-between;
 	transform: translateX(-50%);
-	@include sizes(300px, 50px);
+	@include mixins.sizes(300px, 50px);
 
-	@include tabletWidth {
+	@include media.tabletWidth {
 		width: 240px;
 	}
 
-	@include tabletHeight {
+	@include media.tabletHeight {
 		width: 240px;
 	}
 
@@ -103,15 +99,15 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		@include sizes(52px, 48px);
+		@include mixins.sizes(52px, 48px);
 		border: 3px solid #ffc800;
 
-		@include tabletWidth {
-			@include sizes(45px, 40px)
+		@include media.tabletWidth {
+			@include mixins.sizes(45px, 40px)
 		}
 
-		@include tabletHeight {
-			@include sizes(45px, 40px);
+		@include media.tabletHeight {
+			@include mixins.sizes(45px, 40px);
 		}
 	}
 
@@ -120,51 +116,46 @@ body {
 		color: #e4ff00;
 		user-select: none;
 
-		@include tabletWidth {
+		@include media.tabletWidth {
 			font-size: 35px;
 		}
 
-		@include tabletHeight {
+		@include media.tabletHeight {
 			font-size: 35px;
 		}
 	}
 }
 
 .fullscreen-toggle {
-	position: absolute;
-	left: 50%;
-	top: 20px;
+	@include mixins.posAbsoluteLeftTop(50%, 20px);
 	transform: translateX(-50%);
 	cursor: pointer;
 	user-select: none;
 	transition: 0.3s;
 
-	@include tabletWidth {
-		@include sizes(35px, 35px);
+	@include media.tabletWidth {
+		@include mixins.sizes(35px, 35px);
 
-		@include hoverOrActive {
-			@include sizes(34px, 34px);
+		@include mixins.hoverOrActive {
+			@include mixins.sizes(34px, 34px);
 		}
 	}
 
-	@include tabletHeight {
-		@include sizes(35px, 35px);
+	@include media.tabletHeight {
+		@include mixins.sizes(35px, 35px);
 
-		@include hoverOrActive {
-			@include sizes(34px, 34px);
+		@include mixins.hoverOrActive {
+			@include mixins.sizes(34px, 34px);
 		}
 	}
 
-	@include hoverOrActive {
-		@include sizes(39px, 39px);
+	@include mixins.hoverOrActive {
+		@include mixins.sizes(39px, 39px);
 	}
 }
 
-
 .field-orientation__message {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	@include mixins.posAbsoluteLeftTop(50%, 50%);
 	display: none;
 	padding: 10px;
 	transform: translate(-50%, -50%);
