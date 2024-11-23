@@ -1,7 +1,7 @@
-@import './sass/normalize';
-@import './sass/mixins';
-@import './sass/adaptive';
-@import './sass/fonts';
+@use './sass/normalize';
+@use './sass/mixins';
+@use './sass/media';
+@use './sass/fonts';
 
 body {
 	font-family: 'Roboto Slab';
