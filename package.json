@@ -28,6 +28,7 @@
 		"start": "set NODE_ENV=development&&webpack serve",
 		"dev": "set NODE_ENV=development&&webpack",
 		"prod": "set NODE_ENV=production&&webpack",
+		"deploy": "gh-pages -d dist",
 		"clean": "rd /s /q dist"
 	},
 	"browserslist": [
@@ -38,5 +39,8 @@
 	],
 	"keywords": [],
 	"author": "Stanislau Vyrski",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"gh-pages": "^6.3.0"
+	}
 }

@@ -11,7 +11,7 @@ export const clickEvents = {
 		setPlayerScore(playerOneScore, getSessionStorage('playerOneScore'))
 		setPlayerScore(playerTwoScore, getSessionStorage('playerTwoScore'))
 	},
-	'.fullscreen-toggle': toggleFullScreen,
+	'.fullscreen-toggle':  toggleFullScreen,
 	'.field__ball': () => {
 		const getFlagCurrentValue = getSessionStorage('flag')
 		getFlagCurrentValue === '0' ? movingBallOnClick('right', playerOneScore, 'playerOneScore', 1) : movingBallOnClick('left', playerTwoScore, 'playerTwoScore', 0)

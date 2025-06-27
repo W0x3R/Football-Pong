@@ -4,6 +4,7 @@ import { movingBallRelativeFlag } from "./js/ball/movingBallRelativeFlag"
 import { checkOrientation } from "./js/orientation/checkOrientation"
 import { clickEvents } from "./js/eventHandlers/clickEvents"
 import { callEvents } from "./js/eventHandlers/callEvents"
+import { checkIosDevice } from "./js/toggleFullScreen"
 
 // resize event
 window.addEventListener("resize", () => {
@@ -14,6 +15,7 @@ window.addEventListener("resize", () => {
 // window load event
 window.addEventListener("load", () => {
 	checkOrientation()
+	checkIosDevice()
 	movingBallRelativeFlag()
 	checkSessionScorePresence()
 })
