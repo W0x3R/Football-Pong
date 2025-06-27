@@ -2,7 +2,7 @@
 
 **Football-pong** is an exciting two-player game where opponents take turns clicking on the ball, sending it in a random direction towards the enemy goal! Play on the same computer, battling each other on the soccer field, and watch as each click brings the ball closer to the coveted goal. A simple but dynamic game where every move can be decisive!
 
-![readmePhoto](/assets/images/readmePhotos/readmePhoto.jpg)
+![readmePhoto](https://res.cloudinary.com/dkcilxezg/image/upload/v1751049445/readmePhoto_ssrpqs.jpg)
 
 💻 Deploy: [Link](https://github.com/W0x3R/Football-Pong)
 
